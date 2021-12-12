@@ -128,4 +128,16 @@ app.get('/elements', (req, res) => {
 });
 ````
 #
-###
+### Handlebars 👨
+Realizamos la instalacion de __Handlebars__ para __express.js__, para poder renderizar las vistas y reutilizar algunos elementos de esta. Para esto creamos una 📂carpeta llamada __views__ la cual utiliza __HBS__ y nos creamos el archivo `home.hbs`, en esta pegamos todo el contenido de la plantilla que utilizamos de  `index.html` anteriormente.
+* Para su utilización por defecto deberemos requerirla con la siguiente line de codigo.
+````
+app.set('view engine', 'hbs');
+````
+* Establecemos la ruta por defecto, en este caso utilizando el archivo __Handlebars 👨__ recien creado.
+````
+app.get('/', (req, res) => {
+    res.render('home');
+});
+````
+#
