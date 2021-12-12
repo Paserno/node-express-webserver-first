@@ -114,3 +114,18 @@ app.get('*', (req, res) => {
     res.sendFile(__dirname + '/public/404.html')
 });
 ````
+#
+### 3.- Servir un sitio web completo
+En esta parete descargamos una plantilla hecha de un sitio para utilizar y probar.
+* Este sitio tiene diferentes elemento por ejemplo `index.html`, `generic.html` y `elements.html` la que le haremos redireccionamiento, para mostrar en nuestro servidor web.
+* Para esto se creo redireccionamientos hacia esas rutas.
+````
+app.get('/generic', (req, res) => {
+    res.sendFile(__dirname + '/public/generic.html')
+});
+app.get('/elements', (req, res) => {
+    res.sendFile(__dirname + '/public/elements.html') 
+});
+````
+#
+###
