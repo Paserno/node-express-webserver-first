@@ -8,9 +8,12 @@ app.set('view engine', 'hbs');
 // Servir Contenido Estatico.   || middleware
 app.use( express.static('public') )
 
-
+//! Enviando argumentos del controlador.
 app.get('/', (req, res) => {
-    res.render('home');
+    res.render('home',{
+        nombre: 'Paserno Rojas',
+        titulo: 'Aprendiendo Node.js'
+    });
 });
 
 app.get('/generic', (req, res) => {

@@ -128,7 +128,7 @@ app.get('/elements', (req, res) => {
 });
 ````
 #
-### Handlebars 👨
+### 4.- Handlebars 👨
 Realizamos la instalacion de __Handlebars__ para __express.js__, para poder renderizar las vistas y reutilizar algunos elementos de esta. Para esto creamos una 📂carpeta llamada __views__ la cual utiliza __HBS__ y nos creamos el archivo `home.hbs`, en esta pegamos todo el contenido de la plantilla que utilizamos de  `index.html` anteriormente.
 * Para su utilización por defecto deberemos requerirla con la siguiente line de codigo.
 ````
@@ -139,5 +139,26 @@ app.set('view engine', 'hbs');
 app.get('/', (req, res) => {
     res.render('home');
 });
+````
+#
+### 5.- Argumentos desde el Controlador
+Hay veces que necesitamos algunos argumentos que se envien desde el controlador y sean mostrados por pantalla, para esto HBS, tiene una forma de mostrarlo y esto lo veremos a continuación.
+* Por ejemplo en este caso queremos enviar 2 argumentos, el __nombre__ y el __titulo__, y de esta manera se puenden enviar argumentos para luego recibirlo y rednerizarlo en las pantallas de HBS.
+````
+app.get('/', (req, res) => {
+    res.render('home',{
+        nombre: 'Felipe Herreras',
+        titulo: 'Aprendiendo Node.js'
+    });
+});
+```` 
+Vamos a `home.hbs`
+* En el `<header>` queremos enviar el titulo, para esto hacemos doble llaves "{}" para recibir el argumento.
+````
+<title>{{ titulo }}</title>
+````
+* Tabien lo usaremos en la cabezera de la pagina, en este caso el __titulo__ y el __nombre__.
+````
+<div class="logo"><a href="/">{{ titulo }} <span>{{ nombre }}</span></a></div>
 ````
 #
