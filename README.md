@@ -52,6 +52,7 @@ res.end();
 #
 ## Uso de Express 🔲
 ### 1.- Hola mundo con express
+Ahora creamos un nuevo `app.js`, para la solución de __express__
 * El primer "Hola Mundo", dada por __Express__.
 ````
 const express = require('express')
@@ -85,3 +86,31 @@ app.listen(port, () => {
 })
 ````
 #
+### 2.- Servir Contenido Estatico
+Para esto nos creamos una nueva 📂carpeta llamada __public__ con un archivo `.html`.
+* Inicializamos el archivo HTML y le introducimos un "Hola Mundo".
+````
+ <h1>Hola Mundo</h1>
+    <hr>
+````
+En `app.js`:
+* Luego para mostrar el contenido creado en __Public__ _(Usamos el Middleware)_.
+* Y borramos el contenido que no se utilizara `app.get('/', (req, res) => {...}`, ya que no se podra llamar ya que se esta utilizando lo que viene por el __Public__ _(esto quiere decir que el contenido de __Public__ tiene prioridad sobre las rutas .get)_
+````
+app.use( express.static('public') )
+````
+Adicionalmente creamos en la 📂capeta __Public__ un archivo `404.html`, para todas las rutas adicionales:
+* Agregamos elemento html
+````
+<h1>404 | Page not found</h1>
+<a href="/"> Ir al Home </a>
+````
+En `app.js`:
+* Remplazamos el elemento `res.send()`, por `res.sendFile()` para enviar un archivo.
+* Utilizamos `__dirname` el cual es una __variable de entorno__ que le indica la ruta absoluta del directorio que contiene el archivo que se está ejecutando actualmente.
+* Y le agregamos la direccion `/public/404.html` donde se encuentra el archivo.
+````
+app.get('*', (req, res) => {
+    res.sendFile(__dirname + '/public/404.html')
+});
+````
