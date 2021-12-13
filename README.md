@@ -1,8 +1,8 @@
 # Creacion de un Webserver
-Esta es una aplicación donde se creara un __Webserver__ con __Node__
+Esta es una aplicación donde se creara un __Webserver__ con __Node__, se utilizaron los siguientes elementos:
 * __[Express](https://www.npmjs.com/package/express)__ - [Pagina Oficial](https://expressjs.com)
-* 2
-* 3
+* __[Handlebars](https://github.com/pillarjs/hbs)__
+* __[Doenv](https://www.npmjs.com/package/dotenv)__
 #
 #### Para reconstruir los modulos de node ejecute el siguiente comando.
 ````
@@ -178,5 +178,18 @@ Creamos los archivos __navbar.hbs__, __header.hbs__ y __footer.hbs__ extrayendo 
 
     <!-- Nav -->
     {{> navbar }}
+````
+#
+## 7.- Preparando Webserver para subirlo a un hosting
+Para esto volvimos a instalar __Doenv__ para guardar las variables de entorno, en este caso la del puerto.
+````
+PORT=8081
+````
+* Realizamos la importacion correspondiente de __Doenv__.
+* Luego le asignamo el puerto a nuestra constante llamada `port`.
+````
+require('dotenv').config();
+
+const port = process.env.PORT;
 ````
 #
