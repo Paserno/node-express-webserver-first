@@ -1,5 +1,5 @@
 > __Elemento Anterior 👀:__ __[Aplicación de Clima ⛅](https://github.com/Paserno/node-clima-app-terminal)__
-# Creacion de un Webserver
+# Creación de un Webserver
 Esta es una aplicación donde se creara un __Webserver__ con __Node__, se utilizaron los siguientes elementos:
 * __[Express](https://www.npmjs.com/package/express)__ - [Pagina Oficial](https://expressjs.com)
 * __[Handlebars](https://github.com/pillarjs/hbs)__
