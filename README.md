@@ -161,4 +161,22 @@ Vamos a `home.hbs`
 ````
 <div class="logo"><a href="/">{{ titulo }} <span>{{ nombre }}</span></a></div>
 ````
+# 
+### 6.- Usando parciales de HBS 👨
+En el caso de querer reutilizar elementos como __navbar__, __header__, __footer__ y otros elementos se puede hacer con __HBS__, para esto lo mostraremos a continuación:
+* Para reutilizar estos elementos, en la documentación nos sale una forma practica de hacerlo.
+* Creando una 📂carpeta en `views/` llamada `partials/`, y aqui depositar los elementos a reutilizar.
+* Para poder utilizar todos esots elementos tenemos que poder cargarlos.
+````
+hbs.registerPartials( __dirname + '/views/partials');
+````
+Creamos los archivos __navbar.hbs__, __header.hbs__ y __footer.hbs__ extrayendo el contenido de las paginas como `home.hbs` que creamos anteriormente _(cortamos los elementos __navbar__, __header__ y __footer__, para luego insertarlas en los nuevos archivos creados)_. Luego vamos a los archivos principales como `home.hbs`.
+* Remplazamos el contenido que habia en la plantilla por lo siguiente `{{> header  }}` de esta manera renderizamos el contenido del archivo `header.hbs`, para que luego sea mostrado por pantalla.
+````
+    <!-- Header -->
+    {{> header  }}
+
+    <!-- Nav -->
+    {{> navbar }}
+````
 #
